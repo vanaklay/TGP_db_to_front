@@ -13,13 +13,30 @@
  *= require_tree .
  *= require_self
  */
-
+body {
+  font-family: 'News Cycle', sans-serif;
+  font-weight: 700;
+}
  .gossip-card {
    margin: 5px;
  }
 
  .gossip-card:hover {
-   box-shadow: 1px 1px 1px 3px;
+  box-shadow: 1px 1px 10px;
+ }
+
+ .btn-custom {
+    display: inline-block;
+   background-color: #eb6864;
+   padding: 0.375rem 1rem;
+   border-radius: 0.25rem;
+   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+   
+ }
+ .btn-custom:hover {
+  color: #fff;
+  background-color: #e74742;
+  border-color: #e53c37;
  }
 
  a {
@@ -32,12 +49,18 @@
   color: white;
 }
 
-p a {
+.new-link {
   text-decoration: none;
   color: black;
 }
 
-p a:hover {
+.new-link:hover {
  text-decoration: none;
- color: red;
+ color: #eb6864;
+}
+
+.img-goss {
+  max-height: 25rem;
+  width: auto;
+  border-radius: 5px;
 }

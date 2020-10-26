@@ -1,10 +1,10 @@
 <div class="container">
-  <div class="text-center">
+  <div class="text-center p-3 m-3">
     <h1>Welcome my Friend</h1>
     <p>Do you want some gossips ?????</p>
   </div>
 
-  <div class="text-center">
+  <div class="text-center p-2 m-2">
     <h2> ⬇️ This is the last Gossips that we heard ⬇️ </h2> 
   </div>
 
@@ -15,8 +15,9 @@
         <div class="card-body">
           <h5 class="card-title"><%= gossip.user.first_name%></h5>
           <p class="card-text"><%= gossip.title%></p>
-
-          <div class="btn btn-secondary"><%= link_to "See this gossip", gossip_path(gossip.id)%></div>
+          <div class="row justify-content-center">
+            <div class="btn-custom"><%= link_to "See this gossip", gossip_path(gossip.id)%></div>
+          </div>
         </div>
       </div>
     
