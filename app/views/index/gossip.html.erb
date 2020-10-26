@@ -1,0 +1,9 @@
+<div class="container pt-2 pb-3">
+  <div class="text-center">
+    <h1>Title of this gossip : <%= @gossip.title%></h1>
+    <p>Content : <%= @gossip.content%></p>
+    <p>Write with ❤️ by <%= @gossip.user.first_name%> <%= @gossip.user.last_name%> ➡️ <%= link_to "See this user", user_path(@gossip.user.id)%></p>
+    <p>Create at : <%= @gossip.created_at%></p>    
+  </div>
+
+</div>
