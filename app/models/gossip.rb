@@ -1,6 +1,6 @@
 class Gossip < ApplicationRecord
 
-  validates :title, presence: true, length: { in: 3..14 }
+  validates :title, presence: true, length: { in: 3..14, message: "Please enter between 3 to 14 characters" }
   validates :content, presence: true
 
   belongs_to :user

@@ -2,9 +2,11 @@
   <div class="text-center p-3 m-3">
     <h1>Welcome my Friend</h1>
     <p>Do you want some gossips ?????</p>
+    <% if notice %>
     <div class="alert alert-success" role="alert">
       <%= notice %>
     </div>
+    <% end %>
   </div>
 
   <div class="text-center p-2 m-2">

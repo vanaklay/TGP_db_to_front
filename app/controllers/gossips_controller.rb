@@ -1,7 +1,5 @@
 class GossipsController < ApplicationController
   def new
-    # obligé d'instancier un gossip vide ? 
-    @gossip = Gossip.new(title: params[:title], content: params[:content], user: User.all.sample)
   end
 
   def create
@@ -11,9 +9,7 @@ class GossipsController < ApplicationController
       flash[:notice] = "New gossip Save in DB"
       redirect_to root_path 
     else
-      puts "$" * 30
-      puts "error message"
-      puts "$" * 30
+      flash.now[:alert] = "We cannot create your gossip for this reason(s) :"
       render :new
     end
   end
