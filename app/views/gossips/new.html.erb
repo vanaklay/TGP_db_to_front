@@ -1,0 +1,31 @@
+
+<div class="container">
+  <div class="text-center">
+    <h1 class="p-3 m-3">Create a new gossip here</h1>
+    <% if @gossip.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+        <p>We cannot create your gossip for this reason(s) :</p>
+        <ul class="list-unstyled">
+          <% @gossip.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      
+    <% end %>
+  </div>
+    <%= form_tag url_for(action: 'create'), method: "post" do %>
+
+      <%= label_tag 'Title', name="title" %>
+      <%= text_field_tag 'title' %>
+      <br /> <br />
+
+      <%= label_tag 'Content', name="content" %>
+      <%= text_area_tag 'content'%>
+      <br /> <br />
+
+      <%= submit_tag "Create Post" %>
+
+    <% end %>
+  
+</div>
