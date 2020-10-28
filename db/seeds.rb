@@ -23,14 +23,14 @@ require 'faker'
 # end
 
 ## Create 30 comments
-30.times do
-  Comment.create(content: Faker::Lorem.sentence(word_count: 50 + rand(100)), user: User.all.sample, gossip: Gossip.all.sample )
-end
+# 30.times do
+#   Comment.create(content: Faker::Lorem.sentence(word_count: 50 + rand(100)), user: User.all.sample, gossip: Gossip.all.sample )
+# end
 
 ## Create 10 tags
-# 10.times do
-#   Tag.create(title: Faker::String.random(length: 4 + rand(12)))
-# end
+10.times do 
+  Tag.create(title: Faker::Dessert.variety)
+end
 
 
 ## Create Db of 40 joins

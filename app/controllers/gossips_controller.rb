@@ -6,11 +6,11 @@ class GossipsController < ApplicationController
     
   def new
     @gossip = Gossip.new
+    @tags = Tag.all
   end
 
   def create
-    @gossip = Gossip.new(title: params[:title], content: params[:content], user: User.find_by(id: 21))
-
+    @gossip = Gossip.new(title: params[:title], content: params[:content], user: User.all.sample)
     if @gossip.save
       flash[:notice] = "New gossip Save in DB"
       redirect_to root_path 
