@@ -1,6 +1,6 @@
 <div class="container">
   <div class="text-center p-3 m-3">
-    <h1>Welcome my Friend -- GossipsControllerView --</h1>
+    <h1>Welcome my Friend</h1>
     <p>Do you want some gossips ?????</p>
     <% if notice %>
     <div class="alert alert-success" role="alert">
@@ -19,7 +19,10 @@
       <div class="card gossip-card" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title"><%= gossip.user.first_name%></h5>
+          <hr/>
           <p class="card-text"><%= gossip.title%></p>
+          <hr class="hr-custom"/>
+          <p class="card-text text-center"><%= gossip.comments.count%> Comments</p>
           <div class="row justify-content-center">
             <div class="btn-custom"><%= link_to "See this gossip", gossip_path(gossip.id)%></div>
           </div>

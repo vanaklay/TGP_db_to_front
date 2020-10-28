@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get '/team', to: 'index#team'
   get '/welcome/:name', to: 'index#welcome'
 
-  resources :gossips
+  resources :gossips do
+    resources :comments
+  end
   resources :users
   resources :cities, only: [:index, :show]
 end

@@ -20,4 +20,7 @@
     <div class="btn-custom-edit m-3"><%= link_to "Edit this gossip", edit_gossip_path(@gossip.id)%></div>
     <%= link_to "Delete this gossip" , gossip_path(@gossip.id), :method => "delete", :class => "btn-custom-delete m-3", :data => {:confirm => "are_you_sure"} %>
   </div>
+  <hr/>
+  <%= render partial: 'gossips/form' %>
+  <%= render partial: 'gossips/comment', collection: @gossip.comments.reverse %>
 </div>
