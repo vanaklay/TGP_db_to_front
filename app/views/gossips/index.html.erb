@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="text-center p-3 m-3">
+    <h1>Welcome my Friend -- GossipsControllerView --</h1>
+    <p>Do you want some gossips ?????</p>
+    <% if notice %>
+    <div class="alert alert-success" role="alert">
+      <%= notice %>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="text-center p-2 m-2">
+    <h2> ⬇️ This is the last Gossips that we heard ⬇️ </h2> 
+  </div>
+
+  <div class="row justify-content-center">
+    <% @gossips.each do |gossip| %>
+
+      <div class="card gossip-card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= gossip.user.first_name%></h5>
+          <p class="card-text"><%= gossip.title%></p>
+          <div class="row justify-content-center">
+            <div class="btn-custom"><%= link_to "See this gossip", gossip_path(gossip.id)%></div>
+          </div>
+        </div>
+      </div>
+    
+    <% end %>
+  </div>
+
+</div>

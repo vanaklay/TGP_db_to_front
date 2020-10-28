@@ -39,6 +39,36 @@ body {
   border-color: #e53c37;
  }
 
+ .btn-custom-delete {
+  display: inline-block;
+  background-color: #f57a00;
+  border-color: #f57a00;
+  padding: 0.375rem 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+ }
+
+ .btn-custom-delete:hover {
+  color: #fff;
+  background-color: #cf6700;
+  border-color: #c26100;
+ }
+
+ .btn-custom-edit {
+  display: inline-block;
+  background-color: #369;
+  border-color: #369;
+  padding: 0.375rem 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+ }
+
+ .btn-custom-edit:hover {
+  color: #fff;
+  background-color: #29537c;
+  border-color: #264d73;
+ }
+
  a {
    text-decoration: none;
    color: white;

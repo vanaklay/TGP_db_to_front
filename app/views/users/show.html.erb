@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="text-center p-3 m-3">
+    <h1><%= @user.first_name%> <%= @user.last_name %></h1>
+    <img src="https://robohash.org/<%= params[:id] %>?set=set4">
+    <h2>From  ➡️ <%= link_to @user.city.name, city_path(@user.city.id), :class => "new-link"%></h2>
+    <h3>Age : <%= @user.age%> years old</h3>
+    <h3>Description : <%= @user.description%></h3>
+    <h3>Email me at <%= @user.email%></h3>
+  </div>
+</div>
