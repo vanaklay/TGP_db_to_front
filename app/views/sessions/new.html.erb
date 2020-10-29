@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="text-center">
+    <h1 class="p-3 m-3">LOGIN</h1>
+    <% if alert %>
+      <div class="alert alert-danger" role="alert">
+        <p><%= alert %></p>
+      </div>
+      
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= image_tag "login", :class => "img-fluid img-goss" %>
+    </div>
+    <div class="col">
+      <div>
+        <%= form_tag url_for(action: 'create'), method: "post" do %>
+          <div class="form-group">
+            <%= label_tag 'Email', name="Email" %>
+            <%= text_field_tag :email, params[:email], class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= label_tag 'Password', name="Password" %>
+            <%= text_area_tag :password, params[:password], class: 'form-control'%>
+          </div>
+
+          <div class="form-group d-flex">
+            <%= submit_tag "Login", :class => "btn btn-secondary mx-auto" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="text-center">
+        <p>Don't have an account ? <%= link_to "Subscribe here", new_user_path, :class => "new-link" %></p>
+      </div>
+    </div>
+  
+</div>

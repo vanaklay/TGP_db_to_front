@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
   resources :users
   resources :cities, only: [:index, :show]
+  resources :sessions, only: [:new, :create, :destroy]
 end

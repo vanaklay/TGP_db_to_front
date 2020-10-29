@@ -1,4 +1,5 @@
 class GossipsController < ApplicationController
+  before_action :authenticate_user, only: [:show, :new]
 
   def index
     @gossips = Gossip.all
@@ -10,7 +11,8 @@ class GossipsController < ApplicationController
   end
 
   def create
-    @gossip = Gossip.new(title: params[:title], content: params[:content], user: User.all.sample)
+    @gossip = Gossip.create(post_params)
+    @gossip.user = User.find_by(id: session[:user_id])
     if @gossip.save
       flash[:notice] = "New gossip Save in DB"
       redirect_to root_path 
@@ -58,5 +60,11 @@ class GossipsController < ApplicationController
   private
   def post_params
     post_params = params.require(:gossip).permit(:title, :content)
+  end
+  def authenticate_user
+    unless current_user
+      flash[:alert] = "You need to login in order to see all gossips !"
+      redirect_to new_session_path
+    end
   end
 end
