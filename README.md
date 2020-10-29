@@ -3,11 +3,13 @@
 
 ## Features
 * Homepage with the latest gossips heards
-* welcome page 
-* User page
-* Gossip page
-* Team page
-* Contact page
+* welcome page at /welcome/:name
+* User page 
+* Gossip page at /gossips/:id
+* Team page at /team
+* Contact page at /contact
+* CRUD a Gossip with restriction by user account
+* Like a Gossip with restriction by user account
 
 ## How to clone this ?
 1. First clone this repo
@@ -19,16 +21,10 @@
    $ bundle install
    ```
 3. Run
-   ```shell
-   $ shotgun -p 3000
-   ```
-
-If something doesn't work ... please contact us or try this :
-
 ```shell
 $ rails db:create
 $ rails db:migrate
 $ rails db:seed
-$ shotgun -p 3000
+$ rails server
 ```
 
