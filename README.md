@@ -10,6 +10,10 @@
 * Contact page at /contact
 * CRUD a Gossip with restriction by user account
 * Like a Gossip with restriction by user account
+* CRUD a comment for each Gossip with restriction by user account
+
+## How is work ?
+* Please Create an account in order to like a gossip or create one or add comments
 
 ## How to clone this ?
 1. First clone this repo
