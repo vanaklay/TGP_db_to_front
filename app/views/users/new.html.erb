@@ -40,13 +40,22 @@
         </div>
 
         <div class="form-group">
+          <%= label_tag 'City', name="City" %>
+          <%= text_field_tag :city, params[:city], class: 'form-control'%>
+        </div>
+        <div class="form-group">
+          <%= label_tag 'Zipcode', name="Zipcode" %>
+          <%= text_field_tag :zipcode, params[:zipcode], class: 'form-control'%>
+        </div>
+
+        <div class="form-group">
           <%= label_tag 'Password', name="Password" %>
-          <%= text_field_tag :password, params[:password], class: 'form-control'%>
+          <%= password_field_tag :password, params[:password], class: 'form-control'%>
         </div>
 
         <div class="form-group">
           <%= label_tag 'Confirm Password', name="Confirm Password" %>
-          <%= text_field_tag :password_confirmation, params[:password_confirmation], class: 'form-control'%>
+          <%= password_field_tag :password_confirmation, params[:password_confirmation], class: 'form-control'%>
         </div>
 
         <div class="form-group d-flex">

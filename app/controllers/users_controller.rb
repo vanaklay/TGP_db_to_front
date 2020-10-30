@@ -12,10 +12,11 @@ class UsersController < ApplicationController
   end
 
   def create
+    city = City.create(name: params[:city], zip_code: params[:zipcode])
     @user = User.new(first_name: params[:first_name], last_name: params[:last_name],
        email: params[:email], description: params[:description], age: params[:age], 
        password: params[:password], password_confirmation: params[:password_confirmation],
-      city: City.all.sample)
+      city: city)
     if @user.save
       flash[:notice] = "New User Save in DB"
       log_in(@user)
