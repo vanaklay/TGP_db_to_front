@@ -109,3 +109,13 @@ body {
   border: 0;
   font-size: 2rem;
 }
+
+.tag {
+  display: inline;
+  border-radius: 3px;
+  line-height: 22px;
+  background: rgba(242, 242, 242, 1);
+  color: rgba(117, 117, 117, 1);
+  font-size: 13px;
+  padding: 5px 10px;
+}

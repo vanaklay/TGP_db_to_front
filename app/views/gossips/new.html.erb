@@ -25,6 +25,11 @@
             <%= label_tag 'Content'%>
             <%= text_area_tag :content, params[:content], class: 'form-control'%>
           </div>
+          <div class="form-group">
+            <%= label_tag 'Tag'%>
+            <%= select_tag :tag, options_for_select(Tag.all.collect{ |u| [u.title, u.id] }), :class => "form-control mb-3" %>
+          </div>
+          
         </div>
       </div>
 

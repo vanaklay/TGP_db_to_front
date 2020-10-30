@@ -13,6 +13,7 @@ class GossipsController < ApplicationController
   def create
     @gossip = Gossip.create(title: params[:title], content: params[:content])
     @gossip.user = User.find_by(id: session[:user_id])
+    JoinTableTagGossip.create(gossip: @gossip, tag: Tag.find_by(id: params[:tag]))
     if @gossip.save
       flash[:notice] = "New gossip Save in DB"
       redirect_to root_path 

@@ -19,6 +19,9 @@
           <%= button_to '👍', gossip_likes_path(@gossip), method: :post, class: "m-2 custom-like" %>
         <% end %> 
       </div>
+      <% if tag?(@gossip) %>
+        <%= render partial: 'gossips/tag', collection: @gossip.tags %>
+      <% end %>
     </div>
   </div>
   <% if is_creator?(@gossip) %>
