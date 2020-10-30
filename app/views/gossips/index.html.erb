@@ -2,37 +2,39 @@
   <div class="text-center p-3 m-3">
     <h1>Welcome my Friend</h1>
     <p>Do you want some gossips ?????</p>
+    
+    <%= render partial: 'gossips/notice' %>
+  </div>
+  <% if current_user %>
+    <div class="text-center p-2 m-2">
+      <h2> ⬇️ This is the last Gossips that we heard ⬇️ </h2> 
+    </div>
     <div class="row justify-content-center">
       <div class="btn-custom"><%= link_to "Create a gossip", new_gossip_path %></div>
     </div>
-    <% if notice %>
-    <div class="alert alert-success" role="alert">
-      <%= notice %>
-    </div>
-    <% end %>
-  </div>
+    <div class="row justify-content-center">
+      <% @gossips.each do |gossip| %>
 
-  <div class="text-center p-2 m-2">
-    <h2> ⬇️ This is the last Gossips that we heard ⬇️ </h2> 
-  </div>
-
-  <div class="row justify-content-center">
-    <% @gossips.each do |gossip| %>
-
-      <div class="card gossip-card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title"><%= gossip.user.first_name%></h5>
-          <hr/>
-          <p class="card-text"><%= gossip.title%></p>
-          <hr class="hr-custom"/>
-          <p class="card-text text-center"><%= gossip.comments.count%> Comments</p>
-          <div class="row justify-content-center">
-            <div class="btn-custom"><%= link_to "See this gossip", gossip_path(gossip.id)%></div>
+        <div class="card gossip-card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"><%= gossip.user.first_name%></h5>
+            <hr/>
+            <p class="card-text"><%= gossip.title%></p>
+            <hr class="hr-custom"/>
+            <p class="card-text text-center"><%= gossip.comments.count%> Comments</p>
+            <div class="row justify-content-center">
+              <div class="btn-custom"><%= link_to "See this gossip", gossip_path(gossip.id)%></div>
+            </div>
           </div>
         </div>
-      </div>
+      
+      <% end %>
+    </div>
+  <% else %>
+    <div class="text-center p-2 m-2">
     
-    <% end %>
-  </div>
+      <h2> ➡️ Please <%= link_to "Login", new_session_path, :class => "new-link" %> to see all the gossips </h2> 
+    </div>
+  <% end %>
 
 </div>

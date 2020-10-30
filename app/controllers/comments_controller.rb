@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user, only: [:create, :update, :edit, :destroy]
+  before_action :authenticate_user, only: [:create, :new]
   def create
-    @user = User.first
+    @user = User.find_by(id: session[:user_id])
     @comment = Comment.new(post_params)
     @comment.gossip_id = params[:gossip_id]
     @comment.user_id = @user.id
@@ -45,6 +45,13 @@ class CommentsController < ApplicationController
   private
   def post_params
     params.require(:comment).permit(:content)
+  end
+
+  def authenticate_user
+    unless current_user
+      flash[:alert] = "You need to login in order to see all gossips !"
+      redirect_to new_session_path
+    end
   end
   
 end

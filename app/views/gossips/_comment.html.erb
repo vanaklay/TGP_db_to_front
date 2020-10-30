@@ -3,10 +3,13 @@
     <h4>Comment by <%= comment.user.first_name + " " + comment.user.last_name %></h4>
     <hr/>
     <p><%= comment.content %></p>
-    <div class="d-flex">
-    <button class="btn-custom-edit mx-auto">
-      <%= link_to "Edit this comment", edit_gossip_comment_path(@gossip.id, comment.id)%>
-    </button>
-    </div>
+    <% if is_comment_creator?(comment) %>
+      <div class="row justify-content-center">
+        <%= link_to "Edit this comment", edit_gossip_comment_path(@gossip.id, comment.id), :class => "btn-custom-edit m-3"%>
+        <% if is_creator?(@gossip) %>
+          <%= link_to "Delete this gossip" , gossip_path(@gossip.id), :method => "delete", :class => "btn-custom-delete m-3", :data => {:confirm => "are_you_sure"} %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

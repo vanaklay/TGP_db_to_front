@@ -1,5 +1,5 @@
 class GossipsController < ApplicationController
-  before_action :authenticate_user, only: [:show, :new]
+  before_action :authenticate_user, only: [:show, :new, :create]
 
   def index
     @gossips = Gossip.all
@@ -11,7 +11,7 @@ class GossipsController < ApplicationController
   end
 
   def create
-    @gossip = Gossip.create(post_params)
+    @gossip = Gossip.create(title: params[:title], content: params[:content])
     @gossip.user = User.find_by(id: session[:user_id])
     if @gossip.save
       flash[:notice] = "New gossip Save in DB"

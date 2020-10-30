@@ -36,6 +36,23 @@ module SessionsHelper
     forget(user)
   end
 
+  def is_creator?(gossip)
+    current_user = User.find_by(id: session[:user_id])
+    if gossip.user.id == current_user.id
+      return true
+    else
+      return false
+    end
+  end
+  def is_comment_creator?(comment)
+    current_user = User.find_by(id: session[:user_id])
+    if comment.user.id == current_user.id
+      return true
+    else
+      return false
+    end
+  end
+
   def logged_in?
     if current_user
       return true

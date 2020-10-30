@@ -1,11 +1,7 @@
 <div class="container">
   <div class="text-center p-3 m-3">
     <h1>Title of this gossip : <%= @gossip.title%></h1> 
-      <% if notice %>
-      <div class="alert alert-success" role="alert">
-        <%= notice %>
-      </div>
-      <% end %>
+    <%= render partial: 'gossips/notice' %>
   </div>
   <div class="card gossip-card" style="width: auto;">
     <div class="card-body">
@@ -16,10 +12,12 @@
       <p class="card-text">Content : <%= @gossip.content%></p>
     </div>
   </div>
-  <div class="row justify-content-center">
-    <div class="btn-custom-edit m-3"><%= link_to "Edit this gossip", edit_gossip_path(@gossip.id)%></div>
-    <%= link_to "Delete this gossip" , gossip_path(@gossip.id), :method => "delete", :class => "btn-custom-delete m-3", :data => {:confirm => "are_you_sure"} %>
-  </div>
+  <% if is_creator?(@gossip) %>
+    <div class="row justify-content-center">
+      <div class="btn-custom-edit m-3"><%= link_to "Edit this gossip", edit_gossip_path(@gossip.id)%></div>
+      <%= link_to "Delete this gossip" , gossip_path(@gossip.id), :method => "delete", :class => "btn-custom-delete m-3", :data => {:confirm => "are_you_sure"} %>
+    </div>
+  <% end %>
   <hr/>
   <%= render partial: 'gossips/form' %>
   <%= render partial: 'gossips/comment', collection: @gossip.comments.reverse %>
