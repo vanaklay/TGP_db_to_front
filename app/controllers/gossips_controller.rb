@@ -30,6 +30,7 @@ class GossipsController < ApplicationController
 
   def update
     @gossip = Gossip.find(params[:id])
+    JoinTableTagGossip.update(tag: Tag.find(params[:gossip][:tags]))
     if @gossip.update(post_params)
       flash[:notice] = "Gossip updated in DB"
       redirect_to gossip_path(@gossip.id)
