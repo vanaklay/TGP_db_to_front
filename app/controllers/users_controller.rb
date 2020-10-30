@@ -18,7 +18,8 @@ class UsersController < ApplicationController
       city: City.all.sample)
     if @user.save
       flash[:notice] = "New User Save in DB"
-      redirect_to new_session_path
+      log_in(@user)
+      redirect_to root_path
     else
       flash.now[:alert] = "We cannot create your profile for this reason(s) :"
       puts @user.errors.messages
