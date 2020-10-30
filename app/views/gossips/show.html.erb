@@ -10,6 +10,15 @@
       <h6 class="card-subtitle mb-2 text-muted">Create at : <%= @gossip.created_at%> in 
         <%= link_to @gossip.user.city.name, city_path(@gossip.user.city.id), :class => "new-link"%></h6>
       <p class="card-text">Content : <%= @gossip.content%></p>
+      <div class="row justify-content-center align-items-center">
+        <p class="m-2"><%= @gossip.likes.count %> <%= (@gossip.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+        <% pre_like = @gossip.likes.find { |like| like.user_id == current_user.id} %>
+        <% if pre_like %>
+          <%= button_to '👎', gossip_like_path(@gossip, pre_like), method: :delete, class: "m-2 custom-like" %>
+        <% else %>
+          <%= button_to '👍', gossip_likes_path(@gossip), method: :post, class: "m-2 custom-like" %>
+        <% end %> 
+      </div>
     </div>
   </div>
   <% if is_creator?(@gossip) %>

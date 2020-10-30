@@ -25,6 +25,15 @@
             <p class="card-text"><%= gossip.title%></p>
             <hr class="hr-custom"/>
             <p class="card-text text-center"><%= gossip.comments.count%> Comments</p>
+            <div class="row justify-content-center align-items-center">
+              <p class="m-2"><%= gossip.likes.count %> <%= (gossip.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+              <% pre_like = gossip.likes.find { |like| like.user_id == current_user.id} %>
+              <% if pre_like %>
+                <%= button_to '👎', gossip_like_path(gossip, pre_like), method: :delete, class: "m-2 custom-like" %>
+              <% else %>
+                <%= button_to '👍', gossip_likes_path(gossip), method: :post, class: "m-2 custom-like" %>
+              <% end %> 
+            </div>
             <div class="row justify-content-center">
               <div class="btn-custom"><%= link_to "See this gossip", gossip_path(gossip.id)%></div>
             </div>
