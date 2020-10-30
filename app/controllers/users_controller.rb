@@ -19,6 +19,9 @@ class UsersController < ApplicationController
       city: city)
     if @user.save
       flash[:notice] = "New User Save in DB"
+      if params[:remember]
+        remember(@user)
+      end
       log_in(@user)
       redirect_to root_path
     else

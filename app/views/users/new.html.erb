@@ -18,49 +18,55 @@
       <h3 class="p-3">* All fields are requested</h3>
       <%= form_tag url_for(action: 'create'), method: "post" do %>
         <div class="form-group">
-          <%= label_tag 'First Name', name="First name" %>
+          <%= label_tag 'First Name'%>
           <%= text_field_tag :first_name, params[:first_name], class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= label_tag 'Last Name', name="Last name" %>
+          <%= label_tag 'Last Name'%>
           <%= text_field_tag :last_name, params[:last_name], class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= label_tag 'Email', name="Email" %>
+          <%= label_tag 'Email'%>
           <%= text_field_tag :email, params[:email], class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= label_tag 'Description', name="Description" %>
+          <%= label_tag 'Description'%>
           <%= text_area_tag :description, params[:description], class: 'form-control' %>
         </div>
 
         <div class="form-group">
-          <%= label_tag 'Age', name="Age" %>
+          <%= label_tag 'Age'%>
           <%= text_field_tag :age, params[:age], class: 'form-control'%>
         </div>
 
         <div class="form-group">
-          <%= label_tag 'City', name="City" %>
+          <%= label_tag 'City'%>
           <%= text_field_tag :city, params[:city], class: 'form-control'%>
         </div>
         <div class="form-group">
-          <%= label_tag 'Zipcode', name="Zipcode" %>
+          <%= label_tag 'Zipcode'%>
           <%= text_field_tag :zipcode, params[:zipcode], class: 'form-control'%>
         </div>
 
         <div class="form-group">
-          <%= label_tag 'Password', name="Password" %>
+          <%= label_tag 'Password'%>
           <%= password_field_tag :password, params[:password], class: 'form-control'%>
         </div>
 
         <div class="form-group">
-          <%= label_tag 'Confirm Password', name="Confirm Password" %>
+          <%= label_tag 'Confirm Password'%>
           <%= password_field_tag :password_confirmation, params[:password_confirmation], class: 'form-control'%>
         </div>
-
+        <div class="form-group">
+          <%= check_box_tag :remember, params[:remember], class: 'form-control' %>
+          <%= label_tag 'Remember you' %>
+        </div>
+          
         <div class="form-group d-flex">
           <%= submit_tag "Create Account", :class => "btn btn-secondary mx-auto" %>
         </div>
+
+        
       <% end %>
     </div>
   </div>
