@@ -4,25 +4,28 @@
     <img class="img-fluid img-goss" src="http://lorempixel.com/800/400/city/<%= params[:id] %>/">
   </div>
   <% @loufoc.each do |user| %>
-    <h2><%= user.first_name%> writes this gossip :</h2>
-    <% user.gossips.each do |gossip|%>
-      <div class="card gossip-card m-2" style="width: auto;">
-        <div class="card-body">
-          <h5 class="card-title"><%= link_to gossip.title, gossip_path(gossip.id), :class => "new-link"%> 
-            <div class="row justify-content-center align-items-center">
-              <p class="m-2"><%= gossip.likes.count %> <%= (gossip.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-              <% pre_like = gossip.likes.find { |like| like.user_id == current_user.id} %>
-              <% if pre_like %>
-                <%= button_to '👎', gossip_like_path(gossip, pre_like), method: :delete, class: "m-2 custom-like" %>
-              <% else %>
-                <%= button_to '👍', gossip_likes_path(gossip), method: :post, class: "m-2 custom-like" %>
-              <% end %> 
-            </div>
-          </h5> 
-          <p class="card-text">Content : <%= gossip.content%></p>
+    <% if gossips?(user) %>
+      <h2><%= link_to user.first_name.capitalize, user_path(user.id), :class => "new-link"%> writes this gossip :</h2>
+      <% user.gossips.each do |gossip|%>
+        <div class="card gossip-card m-2" style="width: auto;">
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to gossip.title, gossip_path(gossip.id), :class => "new-link"%> 
+              <div class="row justify-content-center align-items-center">
+                <p class="m-2"><%= gossip.likes.count %> <%= (gossip.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+                <% pre_like = gossip.likes.find { |like| like.user_id == current_user.id} %>
+                <% if pre_like %>
+                  <%= button_to '👎', gossip_like_path(gossip, pre_like), method: :delete, class: "m-2 custom-like" %>
+                <% else %>
+                  <%= button_to '👍', gossip_likes_path(gossip), method: :post, class: "m-2 custom-like" %>
+                <% end %> 
+              </div>
+            </h5> 
+            <p class="card-text">Content : <%= gossip.content%></p>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
+    
   <% end %>
 
 </div>

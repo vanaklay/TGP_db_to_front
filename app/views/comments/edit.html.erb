@@ -23,6 +23,7 @@
     </div>
   <% end %>
   <div class="d-flex">
+    <%= link_to "Back" , gossip_path(params[:gossip_id]), :class => "btn-custom"%>
     <%= link_to "Delete this comment" , gossip_comment_path(params[:gossip_id], params[:id]), :method => "delete", :class => "btn-custom-delete mx-auto", :data => {:confirm => "are_you_sure"} %>
   </div>
 </div>
