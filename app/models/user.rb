@@ -17,6 +17,6 @@ class User < ApplicationRecord
 
   def remember(remember_token)
     remember_digest = BCrypt::Password.create(remember_token)
-    self.update(remember_digest: remember_digest)
+    self.update_attribute(:remember_digest, remember_digest)
   end
 end
