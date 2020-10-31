@@ -1,6 +1,6 @@
 <div class="container">
   <div class="text-center p-3 m-3">
-    <h1><%= @city.name%></h1>
+    <h1><%= @city.name%> - <%= @city.zip_code %></h1>
     <img class="img-fluid img-goss" src="http://lorempixel.com/800/400/city/<%= params[:id] %>/">
   </div>
   <% @loufoc.each do |user| %>
